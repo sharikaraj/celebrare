@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    tools:ignore="MissingClass"
+    android:background="@color/white">
+
+  <EditText
+      android:id="@+id/editText"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_alignParentTop="true"
+      android:layout_marginStart="16dp"
+      android:layout_marginTop="16dp"
+      android:layout_marginEnd="16dp"
+      android:layout_marginBottom="16dp"
+      android:hint="Enter text here"
+      android:textSize="20sp" />
+<LinearLayout
+    android:id="@+id/btnLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_below="@id/editText"
+    >
+
+
+
+  <Button
+      android:id="@+id/addText"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:text="add text"/>
+
+
+  <Button
+      android:id="@+id/btnChangeColor"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/addText"
+      android:text="Change color"
+      android:layout_marginLeft="5dp"
+      android:layout_marginRight="5dp"/>
+
+
+
+</LinearLayout>
+
+  <SeekBar
+      android:id="@+id/fontSizeProgress"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:progress="50"
+      android:progressDrawable="@drawable/seekbar_drawable"
+      android:thumb="@drawable/seekbar_thumb_drawable"
+      android:layout_below="@id/btnLayout"
+      android:progressBackgroundTint="@color/dark_green"
+
+  />
+
+
+  <com.example.sharikarajcelebrareapp.WritingView
+      android:id="@+id/writingView"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:layout_below="@id/fontSizeProgress"
+      />
+
+</RelativeLayout>
