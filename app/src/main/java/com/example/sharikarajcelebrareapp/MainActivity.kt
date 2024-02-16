@@ -25,6 +25,7 @@ class MainActivity : AppCompatActivity() {
         val changeColor = findViewById<Button>(R.id.btnChangeColor)
         val addText = findViewById<Button>(R.id.addText)
         fontSize = findViewById(R.id.fontSizeProgress)
+        val textList = writingView.getAllTextList()
 
 
         editText.setOnClickListener {
@@ -84,20 +85,19 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+
+
     private fun openColorPicker() {
         val ambilWarnaDialog = AmbilWarnaDialog(this, defaultColor,
             object : AmbilWarnaDialog.OnAmbilWarnaListener {
                 override fun onOk(dialog: AmbilWarnaDialog?, color: Int) {
-
-
-                    //val defaultColor: Int = Color.WHITE
-
-                    writingView.setTextColor(0, color)
-
+                    val newTextIndex = writingView.textList.size - 1 // Index of the newly added text
+                    writingView.setTextColor(newTextIndex, color) // Set text color of the newly added text
                 }
 
                 override fun onCancel(dialog: AmbilWarnaDialog?) {
-
+                    // Do nothing if color selection is canceled
                 }
             }
         )

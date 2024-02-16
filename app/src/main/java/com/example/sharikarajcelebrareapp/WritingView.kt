@@ -11,13 +11,17 @@ import android.view.View
 import yuku.ambilwarna.AmbilWarnaDialog
 
 class WritingView (context: Context, attrs: AttributeSet?) : View(context, attrs) {
+    val textList = mutableListOf<TextData>()
+    private var selectedTextIndex: Int? = null
 
     private val paint = Paint().apply {
         color = Color.BLACK
         textSize = 50f
     }
 
-    private val textList = mutableListOf<TextData>()
+     fun getAllTextList(): List<TextData> {
+        return textList
+    }
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
@@ -30,10 +34,7 @@ class WritingView (context: Context, attrs: AttributeSet?) : View(context, attrs
     }
 
 
-
-
-
-    override fun onTouchEvent(event: MotionEvent): Boolean {
+     override fun onTouchEvent(event: MotionEvent): Boolean {
             when (event.action) {
           MotionEvent.ACTION_DOWN -> {
               val touchX = event.x
@@ -76,45 +77,50 @@ class WritingView (context: Context, attrs: AttributeSet?) : View(context, attrs
   }
 
 
-      fun setText(newText: String,  color: Int = Color.BLACK) {
-        textList.clear()
-        addText(newText, 100f, 100f, color)
-
-
-    }
 
 
 
-    fun addText(newText: String, x: Float, y: Float,color: Int) {
-        textList.add(TextData(newText, x, y, color))
-        invalidate()
-    }
 
-    fun setTextSize(newTextSize: Float) {
-        paint.textSize = newTextSize
-        invalidate()
 
-    }
+        fun setText(newText: String, color: Int = Color.BLACK) {
+            textList.clear()
+            addText(newText, 100f, 100f, color)
 
-    fun setTextColor(textIndex: Int, color: Int) {
 
-        if (textIndex >= 0 && textIndex < textList.size) {
-            textList[textIndex].color = color
-            paint.color = color
+        }
+
+
+        fun addText(newText: String, x: Float, y: Float, color: Int) {
+            textList.add(TextData(newText, x, y, color))
             invalidate()
         }
-    }
+
+        fun setTextSize(newTextSize: Float) {
+            paint.textSize = newTextSize
+            invalidate()
+
+        }
+
+        fun setTextColor(textIndex: Int, color: Int) {
+
+            if (textIndex >= 0 && textIndex < textList.size) {
+                textList[textIndex].color = color
+                // paint.color = color
+                invalidate()
+            }
+        }
 
 
-    private data class TextData(
-        val text: String,
-        var x: Float,
-        var y: Float,
-        var color: Int,
-        var touchOffsetX: Float = 0f,
-        var touchOffsetY: Float = 0f,
-        var isBeingDragged: Boolean = false
-    )
+        data class TextData(
+            val text: String,
+            var x: Float,
+            var y: Float,
+            var color: Int,
+            var touchOffsetX: Float = 0f,
+            var touchOffsetY: Float = 0f,
+            var isBeingDragged: Boolean = false
+        )
     }
+
 
 
