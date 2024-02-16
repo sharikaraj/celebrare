@@ -55,9 +55,9 @@ class MainActivity : AppCompatActivity() {
             editText.text.clear()
 
 
-           // val newTextIndex = writingView.textList.size - 1
-           // writingView.textList[newTextIndex].setOnClickListener {
-             //  openColorPicker(newTextIndex)}
+            // val newTextIndex = writingView.textList.size - 1
+            // writingView.textList[newTextIndex].setOnClickListener {
+            //  openColorPicker(newTextIndex)}
 
             fontSize.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
                 override fun onProgressChanged(
@@ -81,30 +81,8 @@ class MainActivity : AppCompatActivity() {
             })
 
         }
-
-      /*  private fun openColorPicker() {
-
-            val ambilWarnaDialog = AmbilWarnaDialog(this, defaultColor,
-                object : AmbilWarnaDialog.OnAmbilWarnaListener {
-                    override fun onOk(dialog: AmbilWarnaDialog?, color: Int) {
-
-
-                        //val defaultColor: Int = Color.WHITE
-
-                        writingView.setTextColor(0, color)
-
-                    }
-
-                    override fun onCancel(dialog: AmbilWarnaDialog?) {
-
-                    }
-                }
-            )
-            ambilWarnaDialog.show()
-        } */
-
-
     }
+
 
     private fun openColorPicker() {
         val ambilWarnaDialog = AmbilWarnaDialog(this, defaultColor,
