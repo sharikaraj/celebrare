@@ -18,11 +18,6 @@ class WritingView (context: Context, attrs: AttributeSet?) : View(context, attrs
     }
 
     private val textList = mutableListOf<TextData>()
-    private var selectedTextIndex: Int? = null
-
-   // private var text = ""
-  //  private var textPosition = PointF(100f, 100f)
-    //private var touchOffset = PointF()
 
     override fun onDraw(canvas: Canvas) {
         super.onDraw(canvas)
